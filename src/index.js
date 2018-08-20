@@ -7,7 +7,7 @@ var server = http.createServer((req,res)=>{
 
     if(path==='/add'){
         for(key in params){
-            if(isNaN(params[key])){
+            if(isNaN(params[key])||(!params[key])){
                 res.end("加运算失败，数据不是num类型不能进行加运算");
                 return;
             }
