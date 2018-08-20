@@ -6,6 +6,12 @@ var server = http.createServer((req,res)=>{
     var num=0;
 
     if(path==='/add'){
+        var arr = Object.keys(params);
+        var length = arr.length;
+        if(length<2){
+            res.end("加运算失败, 参数至少需要两个");
+            return;
+        }
         for(key in params){
             if(isNaN(params[key])||(!params[key])){
                 res.end("加运算失败，数据不是num类型不能进行加运算");
